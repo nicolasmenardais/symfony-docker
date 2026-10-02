@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Profil de {{ membre.pseudo }}
+{% endblock %}
+
+{% block paneltitle %} <h1><i class="bi bi-person-badge-fill"></i> Profil de {{ membre.pseudo }}</h1> {% endblock %}
+
+{% block body %}
+    <div class="row g-4">
+        <div class="col-sm-4">
+            <div class="carte text-center">
+                <div class="avatar">{{ membre.pseudo|first|upper }}</div>
+                <h3>{{ membre.pseudo }}</h3>
+                <span class="badge-neon">{{ membre.utilisateurRole ? 'Administrateur' : 'Membre' }}</span>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="carte">
+                <ul class="liste-infos">
+                    <li><i class="bi bi-envelope-fill"></i> {{ membre.mel }}</li>
+                    <li><i class="bi bi-calendar-heart-fill"></i> Inscrit le {{ membre.dateCreationCompte|date('d/m/Y') }}</li>
+                    <li><i class="bi bi-image-fill"></i> Photo de profil : {{ membre.photoProfil }}</li>
+                </ul>
+                <h3 class="mt-3"><i class="bi bi-camera-reels-fill"></i> Ses vidéos</h3>
+                {% for v in membre.videos %}
+                    <a class="badge-neon" href="{{ path('app_video_detail', {'id': v.id}) }}">{{ v.titre }}</a>
+                {% else %}
+                    <p>Aucune vidéo déposée.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a class="btn btn-neon" href="{{ path('app_membres') }}"><i class="bi bi-arrow-left"></i> Tous les membres</a>
+    </div>
+{% endblock %}

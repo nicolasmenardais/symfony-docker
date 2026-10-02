@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Accueil - Stwitcho
+{% endblock %}
+
+{% block paneltitle %} <h1><i class="bi bi-stars"></i> Bienvenue sur Stwitcho</h1> {% endblock %}
+
+{% block body %}
+    <p class="lead mb-4">La plateforme de gestion de diffusions vidéos du BTS SIO. Ici, vous pouvez gérer :</p>
+
+    <div class="row g-4 mb-4">
+        <div class="col-sm-4">
+            <a class="carte" href="{{ path('app_videos') }}">
+                <i class="bi bi-camera-reels-fill icone"></i>
+                <h3>Les vidéos</h3>
+                <p class="mb-0">Tous les contenus diffusés sur la plateforme.</p>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a class="carte" href="{{ path('app_membres') }}">
+                <i class="bi bi-people-fill icone"></i>
+                <h3>Les membres</h3>
+                <p class="mb-0">Les comptes des membres inscrits.</p>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a class="carte" href="{{ path('app_categories') }}">
+                <i class="bi bi-tags-fill icone"></i>
+                <h3>Les catégories</h3>
+                <p class="mb-0">Parcourez les vidéos par thème.</p>
+            </a>
+        </div>
+    </div>
+
+    <a class="btn btn-neon" href="{{ path('app_home_bienvenue', {'prenom': 'nicolas'}) }}">
+        <i class="bi bi-hand-thumbs-up-fill"></i> Voir la page de bienvenue
+    </a>
+{% endblock %}

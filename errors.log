@@ -1,0 +1,5 @@
+[16-Sep-2026 11:55:09 UTC] [critical] Error thrown while running command "make:migration". Message: "An exception occurred in the driver: could not find driver"
+[16-Sep-2026 12:00:10 UTC] [critical] Error thrown while running command "make:migration". Message: "An exception occurred in the driver: could not find driver"
+[16-Sep-2026 12:58:07 UTC] [critical] Error thrown while running command "doctrine:migrations:execute --up". Message: "Not enough arguments (missing: "versions")."
+[16-Sep-2026 13:00:04 UTC] [critical] Error thrown while running command "doctrine:migrations:execute --up "DoctrineMigrations\Version20260916124931"". Message: "Migration class "DoctrineMigrations\Version20260916124931" was not found?"
+[16-Sep-2026 13:03:46 UTC] [critical] Error thrown while running command "doctrine:migrations:execute --up "DoctrineMigrations\Version20260916124931"". Message: "Migration class "DoctrineMigrations\Version20260916124931" was not found?"

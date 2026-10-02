@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Catégories
+{% endblock %}
+
+{% block paneltitle %} <h1><i class="bi bi-tags-fill"></i> Les Catégories</h1> {% endblock %}
+
+{% block body %}
+    <div class="row g-4">
+        {% for c in les_categories %}
+            <div class="col-sm-4">
+                <a class="carte" href="{{ path('app_categorie_detail', {id: c.id}) }}">
+                    <i class="bi bi-bookmark-star-fill icone"></i>
+                    <h3>{{ c.libelle }}</h3>
+                    <span class="badge-neon">{{ c.videos|length }} vidéo(s)</span>
+                </a>
+            </div>
+        {% else %}
+            <p>Aucune catégorie.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

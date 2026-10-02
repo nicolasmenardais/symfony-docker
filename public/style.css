@@ -1,0 +1,244 @@
+/* ============ STWITCHO — thème néon violet ============ */
+:root {
+    --violet: #9146ff;
+    --violet-clair: #bf94ff;
+    --rose: #ff4d8d;
+    --rouge: #ff2e4d;
+    --fond: #0e0b16;
+    --carte: rgba(255, 255, 255, 0.06);
+    --bord: rgba(191, 148, 255, 0.25);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #ece6ff;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(145, 70, 255, .35), transparent 40%),
+        radial-gradient(circle at 85% 90%, rgba(255, 77, 141, .25), transparent 40%),
+        var(--fond);
+    background-attachment: fixed;
+}
+
+.site {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.5rem;
+}
+
+/* ---------- Entête ---------- */
+.page-header { padding: 1rem 1.5rem; }
+.page-header .row { align-items: center; }
+
+.logo-titre {
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(145, 70, 255, .8);
+    margin: 0;
+}
+.logo-titre .rouge {
+    color: var(--rouge);
+    text-shadow: 0 0 18px var(--rouge);
+    animation: clignote 3s infinite;
+}
+@keyframes clignote {
+    0%, 92%, 100% { opacity: 1; }
+    95% { opacity: .3; }
+}
+
+.sous-titre {
+    color: var(--violet-clair);
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin-top: .3rem;
+}
+
+.logo-img {
+    max-height: 130px;
+    float: right;
+    border-radius: 24px;
+    box-shadow: 0 0 35px rgba(145, 70, 255, .7);
+    animation: flotte 4s ease-in-out infinite;
+}
+@keyframes flotte {
+    50% { transform: translateY(-10px) rotate(-3deg); }
+}
+
+/* ---------- Navigation ---------- */
+.navbar {
+    border-radius: 16px;
+    padding: .6rem 1.2rem;
+    background: linear-gradient(90deg, #1a1328, #221736) !important;
+    border: 1px solid var(--bord) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+}
+.navbar-nav { flex-direction: row; flex-wrap: wrap; gap: .4rem; }
+.navbar .nav-link {
+    color: #d8ccff !important;
+    font-weight: 600;
+    padding: .5rem 1rem !important;
+    border-radius: 10px;
+    transition: all .25s;
+}
+.navbar .nav-link:hover {
+    color: #fff !important;
+    background: var(--violet);
+    box-shadow: 0 0 18px var(--violet);
+    transform: translateY(-2px);
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    opacity: 1;
+    background: linear-gradient(90deg, transparent, var(--violet), var(--rose), transparent);
+}
+
+/* ---------- Panel (classes Bootstrap 3 recréées) ---------- */
+.panel {
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+.panel-info .panel-heading {
+    background: linear-gradient(120deg, var(--violet), var(--rose));
+    padding: 1.2rem 1.6rem;
+    box-shadow: 0 8px 25px rgba(145, 70, 255, .45);
+}
+.panel-heading h1 {
+    margin: 0;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    color: #fff;
+}
+
+/* ---------- Cartes ---------- */
+.carte {
+    background: var(--carte);
+    border: 1px solid var(--bord);
+    border-radius: 18px;
+    padding: 1.6rem;
+    backdrop-filter: blur(10px);
+    transition: transform .3s, box-shadow .3s;
+    height: 100%;
+}
+.carte:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(145, 70, 255, .45);
+}
+a.carte { display: block; color: inherit; text-decoration: none; }
+.carte .icone {
+    font-size: 2.6rem;
+    background: linear-gradient(120deg, var(--violet-clair), var(--rose));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.carte h3 { font-weight: 700; margin-top: .5rem; }
+.chiffre {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 0 20px var(--violet);
+}
+
+/* ---------- Tableaux ---------- */
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: rgba(145, 70, 255, .10);
+    --bs-table-color: #ece6ff;
+    --bs-table-striped-color: #ece6ff;
+    --bs-table-hover-bg: rgba(255, 77, 141, .18);
+    --bs-table-hover-color: #fff;
+    border-color: var(--bord);
+    border-radius: 14px;
+    overflow: hidden;
+}
+.table thead th {
+    background: rgba(145, 70, 255, .35);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: 1px;
+}
+.table a {
+    color: var(--violet-clair);
+    font-weight: 600;
+    text-decoration: none;
+}
+.table a:hover { color: var(--rose); }
+
+/* ---------- Badges, boutons, avatar ---------- */
+.badge-neon {
+    background: rgba(145, 70, 255, .25);
+    border: 1px solid var(--violet);
+    color: #fff;
+    padding: .4rem .8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-block;
+    margin: .15rem;
+    text-decoration: none;
+}
+a.badge-neon:hover { background: var(--violet); color: #fff; }
+
+.btn-neon {
+    background: linear-gradient(120deg, var(--violet), var(--rose));
+    border: 0;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: .6rem 1.5rem;
+    margin: .3rem .3rem .3rem 0;
+    transition: all .25s;
+}
+.btn-neon:hover {
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--rose);
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(135deg, var(--violet), var(--rose));
+    box-shadow: 0 0 30px rgba(145, 70, 255, .7);
+    margin: 0 auto 1rem;
+}
+
+.liste-infos { list-style: none; padding: 0; }
+.liste-infos li {
+    padding: .7rem 0;
+    border-bottom: 1px solid var(--bord);
+}
+.liste-infos li i { color: var(--violet-clair); margin-right: .5rem; }
+
+/* ---------- Pied de page ---------- */
+.navbar-fixed-bottom {
+    margin-top: auto;
+    padding: 1.5rem 0 1rem;
+    border-top: 2px solid var(--violet);
+    text-align: center;
+}
+.navbar-fixed-bottom p {
+    color: var(--violet-clair);
+    margin: 0;
+    font-size: .9rem;
+}
+
+/* Petite animation d'arrivée du contenu */
+.site > .row:last-of-type, .panel { animation: monte .6s ease-out; }
+@keyframes monte {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: none; }
+}

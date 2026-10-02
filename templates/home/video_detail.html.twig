@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Détail de la vidéo "{{ video.titre }}"
+{% endblock %}
+
+{% block paneltitle %} <h1><i class="bi bi-play-btn-fill"></i> {{ video.titre }}</h1> {% endblock %}
+
+{% block body %}
+    <div class="row g-4">
+        <div class="col-sm-3"><div class="carte text-center"><i class="bi bi-clock-fill icone"></i><div class="chiffre">{{ video.duree }}</div><p>durée</p></div></div>
+        <div class="col-sm-3"><div class="carte text-center"><i class="bi bi-eye-fill icone"></i><div class="chiffre">{{ video.nbVues|default(0) }}</div><p>vues</p></div></div>
+        <div class="col-sm-3"><div class="carte text-center"><i class="bi bi-heart-fill icone"></i><div class="chiffre">{{ video.nbLike|default(0) }}</div><p>likes</p></div></div>
+        <div class="col-sm-3"><div class="carte text-center"><i class="bi bi-hdd-fill icone"></i><div class="chiffre">{{ video.taille }}</div><p>Ko</p></div></div>
+    </div>
+
+    <div class="row g-4 mt-1">
+        <div class="col-sm-6">
+            <div class="carte">
+                <h3><i class="bi bi-person-video3"></i> Déposée par</h3>
+                {% if video.idMembre %}
+                    <a class="badge-neon" href="{{ path('app_membres_detail', {'id': video.idMembre.id}) }}">{{ video.idMembre.pseudo }}</a>
+                {% else %}
+                    <span class="badge-neon">inconnu</span>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="carte">
+                <h3><i class="bi bi-tags-fill"></i> Catégorie(s)</h3>
+                {% for c in video.categories %}
+                    <a class="badge-neon" href="{{ path('app_categorie_detail', {'id': c.id}) }}">{{ c.libelle }}</a>
+                {% else %}
+                    <span>Aucune catégorie</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a class="btn btn-neon" href="{{ path('app_videos') }}"><i class="bi bi-arrow-left"></i> Toutes les vidéos</a>
+    </div>
+{% endblock %}
